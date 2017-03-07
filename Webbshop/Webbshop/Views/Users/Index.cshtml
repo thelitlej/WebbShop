@@ -35,6 +35,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Country)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
         <th></th>
     </tr>
 
@@ -63,6 +66,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
