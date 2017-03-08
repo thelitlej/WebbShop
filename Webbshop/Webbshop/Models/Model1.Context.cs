@@ -13,10 +13,10 @@ namespace Webbshop.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebbshopEntities1 : DbContext
+    public partial class WebbShopEntities1 : DbContext
     {
-        public WebbshopEntities1()
-            : base("name=WebbshopEntities1")
+        public WebbShopEntities1()
+            : base("name=WebbShopEntities1")
         {
         }
     

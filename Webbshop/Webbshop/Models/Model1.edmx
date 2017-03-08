@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebbshopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="WebbShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
@@ -196,7 +196,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebbshopModelStoreContainer">
+        <EntityContainer Name="WebbShopModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -246,7 +246,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="WebbshopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="WebbShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
@@ -456,7 +456,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebbshopEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebbShopEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Color" EntityType="Self.Color" />
           <EntitySet Name="Order" EntityType="Self.Order" />
@@ -507,9 +507,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebbshopModelStoreContainer" CdmEntityContainer="WebbshopEntities1">
+        <EntityContainerMapping StorageEntityContainer="WebbShopModelStoreContainer" CdmEntityContainer="WebbShopEntities1">
           <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="WebbshopModel.Category">
+            <EntityTypeMapping TypeName="WebbShopModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Category1" ColumnName="Category" />
@@ -517,7 +517,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Color">
-            <EntityTypeMapping TypeName="WebbshopModel.Color">
+            <EntityTypeMapping TypeName="WebbShopModel.Color">
               <MappingFragment StoreEntitySet="Color">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
@@ -527,7 +527,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="WebbshopModel.Order">
+            <EntityTypeMapping TypeName="WebbShopModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="User_Id" ColumnName="User_Id" />
@@ -542,7 +542,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order_Details">
-            <EntityTypeMapping TypeName="WebbshopModel.Order_Details">
+            <EntityTypeMapping TypeName="WebbShopModel.Order_Details">
               <MappingFragment StoreEntitySet="Order_Details">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
@@ -554,7 +554,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="WebbshopModel.Product">
+            <EntityTypeMapping TypeName="WebbShopModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
@@ -567,7 +567,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Size">
-            <EntityTypeMapping TypeName="WebbshopModel.Size">
+            <EntityTypeMapping TypeName="WebbShopModel.Size">
               <MappingFragment StoreEntitySet="Size">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Size1" ColumnName="Size" />
@@ -576,7 +576,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Target_Group">
-            <EntityTypeMapping TypeName="WebbshopModel.Target_Group">
+            <EntityTypeMapping TypeName="WebbShopModel.Target_Group">
               <MappingFragment StoreEntitySet="Target_Group">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Target_Group1" ColumnName="Target_Group" />
@@ -584,7 +584,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="WebbshopModel.User">
+            <EntityTypeMapping TypeName="WebbShopModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="First_Name" ColumnName="First_Name" />
