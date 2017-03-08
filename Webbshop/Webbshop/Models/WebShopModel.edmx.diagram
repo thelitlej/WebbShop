@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6791ed9dd75840e7a6012957527f2004" Name="Diagram1">
-        <EntityTypeShape EntityType="WebbShopModel.Category" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebbShopModel.Color" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebbShopModel.Order" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebbShopModel.Order_Details" Width="1.5" PointX="7.5" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebbShopModel.Product" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebbShopModel.Size" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebbShopModel.Target_Group" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebbShopModel.User" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <AssociationConnector Association="WebbShopModel.FK_Category_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_Co_Product_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_Color_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_Order_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_User_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_Od_Product_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_Size_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_Si_Product_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="WebbShopModel.FK_Target_Group_Id" ManuallyRouted="false" />
+      <Diagram DiagramId="1e08dcdac4744a17a9dba8cc161eec7c" Name="Diagram1">
+        <EntityTypeShape EntityType="WebbshopModel.Category" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebbshopModel.Color" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebbshopModel.Order" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebbshopModel.Order_Details" Width="1.5" PointX="7.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebbshopModel.Product" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebbshopModel.Size" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebbshopModel.Target_Group" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebbshopModel.User" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="WebbshopModel.FK_Category_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_Co_Product_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_Color_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_Order_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_Od_Product_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_Size_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_Si_Product_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebbshopModel.FK_Target_Group_Id" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
