@@ -22,7 +22,6 @@ namespace Webbshop.Models
     
         public int Id { get; set; }
         public string Target_Group1 { get; set; }
-        public int Product_Id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Product { get; set; }

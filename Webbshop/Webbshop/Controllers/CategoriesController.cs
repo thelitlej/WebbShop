@@ -46,7 +46,7 @@ namespace Webbshop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Category1,Product_Id")] Category category)
+        public ActionResult Create([Bind(Include = "Id,Category1")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Webbshop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Category1,Product_Id")] Category category)
+        public ActionResult Edit([Bind(Include = "Id,Category1")] Category category)
         {
             if (ModelState.IsValid)
             {

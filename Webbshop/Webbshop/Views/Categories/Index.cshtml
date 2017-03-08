@@ -14,9 +14,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Category1)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product_Id)
-        </th>
         <th></th>
     </tr>
 
@@ -24,9 +21,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Category1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product_Id)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

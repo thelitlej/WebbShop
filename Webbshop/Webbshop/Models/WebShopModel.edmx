@@ -11,7 +11,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Product_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -73,7 +72,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Target_Group" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Product_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -254,7 +252,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Product_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Category_Id" FromRole="Category" ToRole="Product" />
         </EntityType>
         <EntityType Name="Color">
@@ -332,7 +329,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Target_Group1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Product_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Target_Group_Id" FromRole="Target_Group" ToRole="Product" />
         </EntityType>
         <EntityType Name="User">
@@ -516,7 +512,6 @@
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Category1" ColumnName="Category" />
-                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -584,7 +579,6 @@
               <MappingFragment StoreEntitySet="Target_Group">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Target_Group1" ColumnName="Target_Group" />
-                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
