@@ -52,7 +52,7 @@ namespace Webbshop.Controllers
             {
                 db.User.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ViewUser");
             }
 
             return View(user);

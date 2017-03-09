@@ -19,7 +19,7 @@ namespace Webbshop.Models
         {
             this.Order = new HashSet<Order>();
         }
-    
+
         public int Id { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
