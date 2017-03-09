@@ -11,7 +11,8 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,12 +23,24 @@ namespace Webbshop.Models
             this.Size = new HashSet<Size>();
         }
     
+        
         public int Id { get; set; }
         public int Category_Id { get; set; }
         public int Target_Group_Id { get; set; }
+
+        [Required(ErrorMessage = "Pris behövs för att skapa en produkt")]
+        [RegularExpression(@"^[1-9]+[0-9]*$", ErrorMessage = "Endast siffror och får inte börja med 0")]
         public double Price { get; set; }
+
+        [Required(ErrorMessage = "Namn behövs för att skapa en produkt")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z'-'''\s]*$", ErrorMessage = "Endast bokstäver och första bokstaven måste vara versal")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Produktstatus behövs för att skapa en produkt")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Product_Status { get; set; }
+
         public int Quantity { get; set; }
     
         public virtual Category Category { get; set; }

@@ -15,8 +15,9 @@ namespace Webbshop.Controllers
         private WebbShopEntities1 db = new WebbShopEntities1();
 
         // GET: Categories
-        public ActionResult Index()
+        public ActionResult Index(Product prdct)
         {
+         
             return View(db.Category.ToList());
         }
 
