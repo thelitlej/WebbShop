@@ -33,7 +33,7 @@ namespace Webbshop.Models
         public double Price { get; set; }
 
         [Required(ErrorMessage = "Namn behövs för att skapa en produkt")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z'-'''\s]*$", ErrorMessage = "Endast bokstäver och första bokstaven måste vara versal")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z'-''ö'\s]*$", ErrorMessage = "Endast bokstäver och första bokstaven måste vara versal")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Name { get; set; }
 
