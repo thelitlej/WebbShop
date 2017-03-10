@@ -11,7 +11,8 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Color
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,14 @@ namespace Webbshop.Models
         }
     
         public int Id { get; set; }
+        [Display(Name = "Produktnamn")]
         public int Product_Id { get; set; }
+
+        [Display(Name = "Färg")]
+        [Required(ErrorMessage = "Lägg till färg")]
         public string Color1 { get; set; }
+        [Display(Name = "Bildnamn")]
+        [Required(ErrorMessage = "Lägg till bild")]
         public string Img_Name { get; set; }
     
         public virtual Product Product { get; set; }

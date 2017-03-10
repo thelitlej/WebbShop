@@ -15,7 +15,7 @@ namespace Webbshop.Controllers
         private WebbShopEntities1 db = new WebbShopEntities1();
 
         // GET: Products
-        public ActionResult Index(Product prdct)
+        public ActionResult Index()
         {
            
             var product = db.Product.Include(p => p.Category).Include(p => p.Target_Group);
