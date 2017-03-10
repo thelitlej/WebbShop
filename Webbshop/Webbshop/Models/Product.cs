@@ -25,23 +25,30 @@ namespace Webbshop.Models
     
         
         public int Id { get; set; }
+        [Display(Name = "Karegori")]
         public int Category_Id { get; set; }
+        [Display(Name = "Målgrupp")]
         public int Target_Group_Id { get; set; }
 
+        [Display(Name = "Pris")]
         [Required(ErrorMessage = "Pris behövs för att skapa en produkt")]
         [RegularExpression(@"^[1-9]+[0-9]*$", ErrorMessage = "Endast siffror och får inte börja med 0")]
         public double Price { get; set; }
 
+        [Display(Name = "Produktnamn")]
         [Required(ErrorMessage = "Namn behövs för att skapa en produkt")]
         [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Börja med versal")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Name { get; set; }
 
+
+        [Display(Name = "Productstatus")]
         [Required(ErrorMessage = "Produktstatus behövs för att skapa en produkt")]
         [RegularExpression(@"^[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Product_Status { get; set; }
 
+        [Display(Name = "Kvantitet")]
         [Required(ErrorMessage = "Pris behövs för att skapa en produkt")]
         [RegularExpression(@"^[1-9]+[0-9]*$", ErrorMessage = "Endast siffror och får inte börja med 0")]
         public int Quantity { get; set; }
