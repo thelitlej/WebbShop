@@ -40,6 +40,7 @@ namespace Webbshop.Controllers
         public ActionResult Create()
         {
             ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name");
+            ViewBag.color = (String)TempData["Color"];
             return View();
         }
 
@@ -54,7 +55,9 @@ namespace Webbshop.Controllers
             {
                 db.Color.Add(color);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                TempData["Color"] = "Färgen " + color.Color1.ToLower() + " har lagts till.";
+                return RedirectToAction("Create");
             }
 
             ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name", color.Product_Id);
