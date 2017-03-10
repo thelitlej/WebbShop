@@ -11,7 +11,8 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,14 +22,23 @@ namespace Webbshop.Models
         }
 
         public int Id { get; set; }
-        public string First_Name { get; set; }
-        public string Last_Name { get; set; }
-        public string Phone_number { get; set; }
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
+        [Display(Name = "Förnamn")]
+        public string First_Name { get; set; }
+        [Display(Name = "Efternamn")]
+        public string Last_Name { get; set; }
+        [Display(Name = "Telefonnummer")]
+        public string Phone_number { get; set; }
+        [Display(Name = "Adress")]
         public string Address { get; set; }
+        [Display(Name = "Postnummer")]
         public string Postal_Code { get; set; }
+        [Display(Name = "Ort")]
         public string City { get; set; }
+        [Display(Name = "Land")]
         public string Country { get; set; }
+        [Display(Name = "Lösenord")]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
