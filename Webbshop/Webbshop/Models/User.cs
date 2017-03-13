@@ -22,23 +22,58 @@ namespace Webbshop.Models
         }
 
         public int Id { get; set; }
+
         [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "E-mail krävs för att skapa en användare.")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Din e-mail måste innehålla ett '@'")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Måste innehålla minst 5 tecken och som mest 30")]
         public string Email { get; set; }
+
         [Display(Name = "Förnamn")]
+        [Required(ErrorMessage = "Fyll i ditt förnamn")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string First_Name { get; set; }
+
         [Display(Name = "Efternamn")]
+        [Required(ErrorMessage = "Fyll i ditt efternamn")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Last_Name { get; set; }
+
         [Display(Name = "Telefonnummer")]
+        [Required(ErrorMessage = "Du behöver fylla i ditt telefonnummer för att skapa en användare")]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Ditt telefonnummer får bara innehålla siffror.")]
+        [StringLength(20, MinimumLength = 7, ErrorMessage = "Måste innehålla minst 7 tecken, och som mest 20")]
         public string Phone_number { get; set; }
+
         [Display(Name = "Adress")]
+        [Required(ErrorMessage = "Du behöver fylla i din adress för att skapa en användare")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Börja din adress med versal")]
+        [StringLength(25, MinimumLength = 10, ErrorMessage = "Måste innehålla minst 10 teckan och mest 25")]
         public string Address { get; set; }
+
         [Display(Name = "Postnummer")]
+        [Required(ErrorMessage = "Du behöver fylla i postnummer för att skapa en användare")]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Ditt postnummer får bara innehålla siffror")]
+        [StringLength(7, MinimumLength = 4, ErrorMessage = "Måste innehålla minst 4 tecken, och mest 7")]
         public string Postal_Code { get; set; }
+
         [Display(Name = "Ort")]
+        [Required(ErrorMessage = "Ort behövs för att skapa en användare")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string City { get; set; }
+
         [Display(Name = "Land")]
+        [Required(ErrorMessage = "Land behövs för att skapa en användare")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Country { get; set; }
+
         [Display(Name = "Lösenord")]
+        [Required(ErrorMessage = "Du behöver ett lösenord för att skapa en användare")]
+        [StringLength(20, MinimumLength = 8, ErrorMessage = "Måste innehålla minst 8 teckan och mest 20")]
         public string Password { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
