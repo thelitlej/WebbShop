@@ -33,7 +33,5 @@ namespace Webbshop.Models
         public virtual DbSet<Size> Size { get; set; }
         public virtual DbSet<Target_Group> Target_Group { get; set; }
         public virtual DbSet<User> User { get; set; }
-
-        public System.Data.Entity.DbSet<Webbshop.Models.ViewUser> ViewUsers { get; set; }
     }
 }

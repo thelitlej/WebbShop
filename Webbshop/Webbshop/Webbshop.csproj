@@ -164,9 +164,11 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\Order_DetailsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\SizesController.cs" />
     <Compile Include="Controllers\Target_GroupController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\ViewUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,6 +196,7 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>WebShopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewUser.cs" />
     <Compile Include="Models\WebShopModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -252,6 +255,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\ViewUser\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

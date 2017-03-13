@@ -19,7 +19,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Product_Id" Type="int" Nullable="false" />
           <Property Name="Color" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Img_Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Img_Name" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -261,7 +261,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Product_Id" Type="Int32" Nullable="false" />
           <Property Name="Color1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Img_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Img_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Co_Product_Id" FromRole="Color" ToRole="Product" />
           <NavigationProperty Name="Order_Details" Relationship="Self.FK_Color_Id" FromRole="Color" ToRole="Order_Details" />
         </EntityType>

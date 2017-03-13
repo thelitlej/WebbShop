@@ -11,8 +11,7 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Size
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +21,7 @@ namespace Webbshop.Models
         }
     
         public int Id { get; set; }
-        [Display(Name = "Storlek")]
         public string Size1 { get; set; }
-        [Display(Name = "Product")]
         public int Product_Id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

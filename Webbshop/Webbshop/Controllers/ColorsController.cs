@@ -51,12 +51,16 @@ namespace Webbshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Product_Id,Color1")] Color color, HttpPostedFileBase file)
         {
+
+
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
             string url = file.ToString(); //getting complete url  
             var fileName = Path.GetFileName(file.FileName); //getting only file name(ex-ganesh.jpg)  
             var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)  
             string img_name = fileName.ToString();
             color.Img_Name = img_name;
+            var errors = ModelState.Where(v => v.Value.Errors.Any());
+
             if (ModelState.IsValid && allowedExtensions.Contains(ext)) //check what type of extension  
             {
                 string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
@@ -67,7 +71,7 @@ namespace Webbshop.Controllers
                 db.Color.Add(color);
                 db.SaveChanges();
                 file.SaveAs(path);
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             else
             {
