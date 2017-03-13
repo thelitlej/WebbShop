@@ -22,20 +22,28 @@ namespace Webbshop.Models
         }
 
         public int Id { get; set; }
+
         [Display(Name = "Användare")]
         public int User_Id { get; set; }
+
         [Display(Name = "Orderstatus")]
         public string Order_Status { get; set; }
+
         [Display(Name = "Ordernummer")]
         public string Order_Number { get; set; }
+
         [Display(Name = "Totalt pris")]
         public double Total_Price { get; set; }
+
         [Display(Name = "Adress")]
         public string Address { get; set; }
+
         [Display(Name = "Postnummer")]
         public string Postal_Code { get; set; }
+
         [Display(Name = "Ort")]
         public string City { get; set; }
+
         [Display(Name = "Land")]
         public string Country { get; set; }
 

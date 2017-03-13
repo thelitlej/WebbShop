@@ -12,6 +12,7 @@ namespace Webbshop.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class User
     {
@@ -72,10 +73,18 @@ namespace Webbshop.Models
         public string Country { get; set; }
 
         [Display(Name = "Lösenord")]
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "Du behöver ett lösenord för att skapa en användare")]
         [StringLength(20, MinimumLength = 8, ErrorMessage = "Måste innehålla minst 8 teckan och mest 20")]
         public string Password { get; set; }
 
+        [NotMapped]
+        [Display(Name ="Upprepa lösenord")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Upprepa ditt lösenord")]
+        [Compare("Password", ErrorMessage ="Ditt lösenord matchar inte")]
+        public string ComparePassword { get; set; }
+     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
     }
