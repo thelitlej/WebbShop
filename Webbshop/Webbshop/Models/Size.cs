@@ -25,7 +25,7 @@ namespace Webbshop.Models
 
         [Display(Name = "Storlek")]
         [Required(ErrorMessage = "Storlek behövs")]
-        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
         public string Size1 { get; set; }
         [Display(Name = "Product")]
         public int Product_Id { get; set; }

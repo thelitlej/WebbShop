@@ -25,7 +25,7 @@ namespace Webbshop.Models
 
         [Display(Name = "Målgrupp")]
         [Required(ErrorMessage = "Målgrupp behövs")]
-        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Target_Group1 { get; set; }
 
