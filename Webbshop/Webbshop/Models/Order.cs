@@ -11,7 +11,8 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,17 +20,25 @@ namespace Webbshop.Models
         {
             this.Order_Details = new HashSet<Order_Details>();
         }
-    
+
         public int Id { get; set; }
+        [Display(Name = "Användare")]
         public int User_Id { get; set; }
+        [Display(Name = "Orderstatus")]
         public string Order_Status { get; set; }
+        [Display(Name = "Ordernummer")]
         public string Order_Number { get; set; }
+        [Display(Name = "Totalt pris")]
         public double Total_Price { get; set; }
+        [Display(Name = "Adress")]
         public string Address { get; set; }
+        [Display(Name = "Postnummer")]
         public string Postal_Code { get; set; }
+        [Display(Name = "Ort")]
         public string City { get; set; }
+        [Display(Name = "Land")]
         public string Country { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Details> Order_Details { get; set; }
         public virtual User User { get; set; }

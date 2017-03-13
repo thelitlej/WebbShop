@@ -11,7 +11,8 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Color
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,9 +20,13 @@ namespace Webbshop.Models
         {
             this.Order_Details = new HashSet<Order_Details>();
         }
-    
+
         public int Id { get; set; }
+        [Display(Name = "Produktnamn")]
         public int Product_Id { get; set; }
+
+        [Display(Name = "Färg")]
+        [Required(ErrorMessage = "Lägg till färg")]
         public string Color1 { get; set; }
         public string Img_Name { get; set; }
     
