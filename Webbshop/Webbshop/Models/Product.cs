@@ -37,20 +37,20 @@ namespace Webbshop.Models
 
         [Display(Name = "Produktnamn")]
         [Required(ErrorMessage = "Namn behövs för att skapa en produkt")]
-        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Inga siffror och börja med versal")]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 tecken och mest 20")]
         public string Name { get; set; }
 
 
-        [Display(Name = "Productstatus")]
+        [Display(Name = "Produktstatus")]
         [Required(ErrorMessage = "Produktstatus behövs för att skapa en produkt")]
-        [RegularExpression(@"^[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$")]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
+        [RegularExpression(@"^[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 tecken och mest 20")]
         public string Product_Status { get; set; }
 
         [Display(Name = "Kvantitet")]
-        [Required(ErrorMessage = "Pris behövs för att skapa en produkt")]
-        [RegularExpression(@"^[1-9]+[0-9]*$", ErrorMessage = "Endast siffror och får inte börja med 0")]
+        [Required(ErrorMessage = "Kvantitet behövs och får endast innehålla siffror")]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Endast siffror och får inte börja med 0")]
         public int Quantity { get; set; }
 
         public virtual Category Category { get; set; }

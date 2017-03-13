@@ -24,8 +24,8 @@ namespace Webbshop.Models
         public int Id { get; set; }
         [Display(Name = "Kategori")]
         [Required(ErrorMessage = "Kategori behövs")]
-        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Inga siffror och börja med versal")]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s]*$", ErrorMessage = "Inga siffror och börja med versal")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 tecken och mest 20")]
         public string Category1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
