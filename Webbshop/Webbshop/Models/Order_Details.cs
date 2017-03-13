@@ -11,7 +11,8 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Order_Details
     {
         public int Id { get; set; }
@@ -19,6 +20,7 @@ namespace Webbshop.Models
         public int Product_Id { get; set; }
         public int Color_Id { get; set; }
         public int Size_Id { get; set; }
+        [Display(Name = "Antal")]
         public int Quantity { get; set; }
     
         public virtual Color Color { get; set; }

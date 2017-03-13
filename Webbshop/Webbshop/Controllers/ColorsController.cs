@@ -59,7 +59,6 @@ namespace Webbshop.Controllers
             var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)  
             string img_name = fileName.ToString();
             color.Img_Name = img_name;
-            var errors = ModelState.Where(v => v.Value.Errors.Any());
 
             if (ModelState.IsValid && allowedExtensions.Contains(ext)) //check what type of extension  
             {
