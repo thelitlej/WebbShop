@@ -17,8 +17,10 @@ namespace Webbshop.Controllers
         // GET: Products
         public ActionResult Index()
         {
+           
             var product = db.Product.Include(p => p.Category).Include(p => p.Target_Group);
             return View(product.ToList());
+            //return View();
         }
 
         // GET: Products/Details/5
@@ -55,7 +57,7 @@ namespace Webbshop.Controllers
             {
                 db.Product.Add(product);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Colors");
             }
 
             ViewBag.Category_Id = new SelectList(db.Category, "Id", "Category1", product.Category_Id);
