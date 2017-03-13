@@ -4,19 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script type="text/javascript">
 
-   function show(input) {
-      if (input.files && input.files[0]) {
-      var filerdr = new FileReader();
-      filerdr.onload = function (e) {
-         $('#user_img').attr('src', e.target.result);
-      }
-      filerdr.readAsDataURL(input.files[0]);
-   }
-}
-</script>
 <h2>Create</h2>
 
 @using (Html.BeginForm("Create", "Colors", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -46,19 +34,14 @@
             @Html.LabelFor(model => model.Img_Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div>
-                    <img id="user_img"
-                         height="100"
-                         width="90"
-                         style="border:solid" />
-                </div>
-                <div>
                     <input type="file" title="search image" id="file" name="file" onchange="show(this)" />
                 </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Lägg till" class="btn btn-default" />
+                <a href="http://www.google.se"><input type="button" value="Nästa" class="btn btn-default" /></a>
             </div>
         </div>
     </div>
