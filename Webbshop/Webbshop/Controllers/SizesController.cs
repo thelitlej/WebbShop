@@ -40,6 +40,9 @@ namespace Webbshop.Controllers
         public ActionResult Create()
         {
             ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name");
+
+            ViewBag.size = TempData["Size"];
+            
             return View();
         }
 
@@ -54,7 +57,8 @@ namespace Webbshop.Controllers
             {
                 db.Size.Add(size);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                TempData["Size"] = "Storleken " + size.Size1.ToString() + " har lagts till för detta plagg";
+                return RedirectToAction("Create");
             }
 
             ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name", size.Product_Id);
