@@ -51,25 +51,30 @@ namespace Webbshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Product_Id,Color1")] Color color, HttpPostedFileBase file)
         {
-
-
+            //accepterade filformat
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
-            string url = file.ToString(); //getting complete url  
-            var fileName = Path.GetFileName(file.FileName); //getting only file name(ex-ganesh.jpg)  
-            var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)  
+
+            //hämtar url
+            string url = file.ToString();
+            //hämtar filnamn
+            var fileName = Path.GetFileName(file.FileName); 
+            //hämtar filnamnformat
+            var ext = Path.GetExtension(file.FileName);
+
             string img_name = fileName.ToString();
             color.Img_Name = img_name;
 
-            if (ModelState.IsValid && allowedExtensions.Contains(ext)) //check what type of extension  
+            if (ModelState.IsValid && allowedExtensions.Contains(ext)) 
             {
-                string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
-                string myfile = name + ext; //appending the name with id  
-                                                             // store the file inside ~/project folder(Img)  
+                string name = Path.GetFileNameWithoutExtension(fileName); 
+                string myfile = name + ext;
+
                 var path = Path.Combine(Server.MapPath("~/App_Data"), myfile);
-                //color.Img_Name = path;
+
                 db.Color.Add(color);
                 db.SaveChanges();
                 file.SaveAs(path);
+
                 return RedirectToAction("Create");
             }
             else

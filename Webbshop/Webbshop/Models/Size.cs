@@ -11,7 +11,8 @@ namespace Webbshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Size
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +20,16 @@ namespace Webbshop.Models
         {
             this.Order_Details = new HashSet<Order_Details>();
         }
-    
+
         public int Id { get; set; }
+
+        [Display(Name = "Storlek")]
+        [Required(ErrorMessage = "Storlek behövs")]
+        [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Inga siffror och börja med versal")]
         public string Size1 { get; set; }
+        [Display(Name = "Product")]
         public int Product_Id { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Details> Order_Details { get; set; }
         public virtual Product Product { get; set; }
