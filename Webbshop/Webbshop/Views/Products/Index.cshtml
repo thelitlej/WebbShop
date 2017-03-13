@@ -53,9 +53,11 @@
             @Html.DisplayFor(modelItem => item.Target_Group.Target_Group1)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Uppdatera", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Lägg till storlek", "Create", "Sizes", new { id = item.Id }, null) |
+            @Html.ActionLink("Lägg till färg", "Create", "Colors", new { id = item.Id }, null) |
+            @Html.ActionLink("Ta bort", "Delete", new { id = item.Id }, new { @style = "color: red;" })
         </td>
     </tr>
 }

@@ -15,18 +15,18 @@
       }
    }
 </script>
-<h2>Create</h2>
+<h2>Lägg till färg</h2>
 
 @using (Html.BeginForm("Create", "Colors", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Color</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Product_Id, "Product_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Product_Id, "Produktnamn", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Product_Id", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product_Id, "", new { @class = "text-danger" })
@@ -41,24 +41,25 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Img_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Img_Name,"Bild", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div>
                     <img id="user_img"
-                         height="100"
-                         width="90"
+                         height="200"
+                         width="180"
                          style="border:0.5px solid" />
                 </div>
+                <br />
                 <div>
-                    <input type="file" title="search image" id="file" name="file" onchange="show(this)" />
-
+                    <input type="file" title="search image" id="file" name="file" onchange="show(this)" hidden/>
                 </div>
+                <br />
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Lägg till" class="btn btn-default" />
-                <a href="http://www.google.se"><input type="button" value="Nästa" class="btn btn-default" /></a>
+                <input type="submit" value="Lägg till" class="btn btn-default" style="margin: 5px 5px 5px 9px;"/>
+                <a href="http://www.google.se"><input type="button" value="Nästa" class="btn btn-default" style="margin: 5px;"/></a>
             </div>
         </div>
     </div>

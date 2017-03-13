@@ -28,6 +28,8 @@ namespace Webbshop.Models
         [Display(Name = "Färg")]
         [Required(ErrorMessage = "Lägg till färg")]
         public string Color1 { get; set; }
+
+        [Display(Name = "Bildnamn")]
         public string Img_Name { get; set; }
     
         public virtual Product Product { get; set; }
