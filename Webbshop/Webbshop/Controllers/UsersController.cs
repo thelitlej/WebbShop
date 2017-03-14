@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Webbshop.Models;
@@ -48,6 +49,10 @@ namespace Webbshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,First_Name,Last_Name,Phone_number,Email,Address,Postal_Code,City,Country,Password,ComparePassword")] User user)
         {
+
+            String pass = user.Password;
+            user.Password = GenerateSHA256Hash(pass).Substring(14);
+
             if (ModelState.IsValid)
             {
                 db.User.Add(user);
@@ -56,6 +61,21 @@ namespace Webbshop.Controllers
             }
 
             return View(user);
+        }
+
+        public string GenerateSHA256Hash(String password)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(password);
+            System.Security.Cryptography.SHA256Managed sha256hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256hashstring.ComputeHash(bytes);
+
+            StringBuilder hexString = new StringBuilder(hash.Length* 2);
+            foreach (byte b in hash)
+            {
+                hexString.AppendFormat("{0:x2}", b);
+            }
+
+            return hexString.ToString();
         }
 
         // GET: Users/Edit/5
@@ -124,4 +144,5 @@ namespace Webbshop.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
