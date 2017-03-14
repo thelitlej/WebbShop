@@ -55,11 +55,11 @@ namespace Webbshop.Controllers
                 db.SaveChanges();
 
                 //Email
-                dynamic email = new Email("WelcomeMail");
-                email.To = "magnus.wlln@gmail.com";
-                email.
-
-
+                dynamic email = new Email("Welcome");
+                email.To = user.Email;
+                email.Name = user.First_Name;
+                email.Send();
+            
                 return RedirectToAction("Index", "ViewUser");
             }
 
