@@ -42,7 +42,7 @@ namespace Webbshop.Controllers
         {
             var prod = from p in db.Product where p.Id == id select p;
             ViewBag.ProductName = (from n in prod select n.Name).First().ToString();
-
+            ViewBag.ID = id;
             ViewBag.Product_Id = new SelectList(prod, "Id", "Name");
             return View();
         }

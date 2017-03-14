@@ -26,7 +26,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Product_Id, "Produktnamn", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Product_Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Product_Id", null, htmlAttributes: new { @class = "form-control", @style = "display:none;" })
+                <p style="margin-top: 8px;">@ViewBag.ProductName</p>
                 @Html.ValidationMessageFor(model => model.Product_Id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +35,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Lägg till" class="btn btn-default" />
-                <input type="button" value="Klar" class="btn btn-default" />
+                <input type="button" class="btn btn-default" value="Klar" onclick="location.href='@Url.Action("Index", "Products")'" style="margin: 0px 5px 5px 5px;" />
                 <p>@ViewBag.size</p>
             </div>
         </div>

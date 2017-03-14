@@ -61,7 +61,7 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Lägg till" class="btn btn-default" style="margin: 0px 5px 5px 9px;"/>
                
-                <input type="button" class="btn btn-default" value="Nästa" onclick="location.href='@Url.Action("Create", "Sizes")'" style="margin: 0px 5px 5px 5px;"/>
+                <input type="button" class="btn btn-default" value="Nästa" onclick="location.href='@Url.Action("Create", "Sizes", new { id = ViewBag.ID })'" style="margin: 0px 5px 5px 5px;"/>
             </div>
         </div>
     </div>
