@@ -38,9 +38,12 @@ namespace Webbshop.Controllers
         }
 
         // GET: Colors/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name");
+            var prod = from p in db.Product where p.Id == id select p;
+            ViewBag.ProductName = (from n in prod select n.Name).First().ToString();
+
+            ViewBag.Product_Id = new SelectList(prod, "Id", "Name");
             return View();
         }
 
