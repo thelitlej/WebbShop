@@ -28,7 +28,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Product_Id, "Produktnamn", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Product_Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Product_Id", null, htmlAttributes: new { @class = "form-control", @style ="display:none;" })
+                <p style="margin-top: 8px;">@ViewBag.ProductName</p>
                 @Html.ValidationMessageFor(model => model.Product_Id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -47,21 +48,32 @@
                     <img id="user_img"
                          height="200"
                          width="180"
-                         style="border:0.5px solid" />
+                         style="border:1px solid; margin-top: 9px; border-radius: 6px"  />
                 </div>
+                  
                 <br />
                 <div>
-                    <input type="file" title="search image" id="file" name="file" onchange="show(this)" hidden/>
+                    <input type="file" title="search image" id="file" name="file" onchange="show(this)"/>
                 </div>
                 <br />
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Lägg till" class="btn btn-default" style="margin: 5px 5px 5px 9px;"/>
+                <input type="submit" value="Lägg till" class="btn btn-default" style="margin: 0px 5px 5px 9px;"/>
                
-                <input type="button" class="btn btn-default" value="Nästa" onclick="location.href='@Url.Action("Create", "Sizes")'" style="margin: 5px;"/>
+                <input type="button" class="btn btn-default" value="Nästa" onclick="location.href='@Url.Action("Create", "Sizes", new { id = ViewBag.ID })'" style="margin: 0px 5px 5px 5px;"/>
+                @if (ViewBag.fileError != null)
+                {
+                    <p style="color: #d51e1e; margin: 5px 0px 0px 10px;">@ViewBag.fileError</p>
+                }
+
+                @if (ViewBag.color != null)
+                {
+                    <p style="margin-top: 5px; margin: 5px 0px 0px 10px; color: #52c200">@ViewBag.color</p>
+                }
             </div>
+            
         </div>
     </div>
 </div>

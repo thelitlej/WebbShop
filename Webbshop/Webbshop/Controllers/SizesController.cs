@@ -37,10 +37,12 @@ namespace Webbshop.Controllers
         }
 
         // GET: Sizes/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name");
+            var prod = from p in db.Product where p.Id == id select p;
+            ViewBag.ProductName = (from n in prod select n.Name).First().ToString();
 
+            ViewBag.Product_Id = new SelectList(prod, "Id", "Name");
             ViewBag.size = TempData["Size"];
             
             return View();
@@ -58,7 +60,7 @@ namespace Webbshop.Controllers
                 db.Size.Add(size);
                 db.SaveChanges();
                 TempData["Size"] = "Storleken " + size.Size1.ToString() + " har lagts till för detta plagg";
-                return RedirectToAction("Create");
+                return RedirectToAction("Create", new { id = size.Product_Id });
             }
 
             ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name", size.Product_Id);
