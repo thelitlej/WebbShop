@@ -43,6 +43,8 @@ namespace Webbshop.Controllers
             var prod = from p in db.Product where p.Id == id select p;
             ViewBag.ProductName = (from n in prod select n.Name).First().ToString();
             ViewBag.ID = id;
+            ViewBag.fileError = TempData["fileError"];
+            ViewBag.color = TempData["color"];
             ViewBag.Product_Id = new SelectList(prod, "Id", "Name");
             return View();
         }
@@ -57,35 +59,47 @@ namespace Webbshop.Controllers
             //accepterade filformat
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
 
-            //hämtar url
-            string url = file.ToString();
-            //hämtar filnamn
-            var fileName = Path.GetFileName(file.FileName); 
-            //hämtar filnamnformat
-            var ext = Path.GetExtension(file.FileName);
 
-            string img_name = fileName.ToString();
-            color.Img_Name = img_name;
-
-            if (ModelState.IsValid && allowedExtensions.Contains(ext)) 
+            if (file != null)
             {
-                string name = Path.GetFileNameWithoutExtension(fileName); 
-                string myfile = name + ext;
+                //hämtar url
+                string url = file.ToString();
+                //hämtar filnamn
+                var fileName = Path.GetFileName(file.FileName);
+                //hämtar filnamnformat
+                var ext = Path.GetExtension(file.FileName);
+                string img_name = fileName.ToString();
+                color.Img_Name = img_name;
 
-                var path = Path.Combine(Server.MapPath("~/App_Data"), myfile);
+                if (ModelState.IsValid && allowedExtensions.Contains(ext))
+                {
+                    string name = Path.GetFileNameWithoutExtension(fileName);
+                    string myfile = name + ext;
 
-                db.Color.Add(color);
-                db.SaveChanges();
-                file.SaveAs(path);
+                    var path = Path.Combine(Server.MapPath("~/App_Data"), myfile);
 
-                return RedirectToAction("Create",  new {id = color.Product_Id });
+                    db.Color.Add(color);
+                    db.SaveChanges();
+                    file.SaveAs(path);
+
+
+                    TempData["color"] = "Färgen " + color.Color1.ToLower() + " har lagts till";
+                    return RedirectToAction("Create", new { id = color.Product_Id });
+                }
+                else
+                {
+                    
+                    TempData["fileError"] = "Välj en bild med rätt format (.png .jpg .Jpeg .jpeg)";
+                    return RedirectToAction("Create", new { id = color.Product_Id });
+                }
+                
             }
             else
             {
-                ViewBag.message = "Please choose only Image file";
+                TempData["fileError"] = "Välj en bild";
+                return RedirectToAction("Create", new { id = color.Product_Id });
             }
-            ViewBag.Product_Id = new SelectList(db.Product, "Id", "Name", color.Product_Id);
-            return View(color);
+
         }
 
         // GET: Colors/Edit/5

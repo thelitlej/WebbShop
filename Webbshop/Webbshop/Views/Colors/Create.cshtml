@@ -48,11 +48,12 @@
                     <img id="user_img"
                          height="200"
                          width="180"
-                         style="border:0.5px solid; margin-top: 9px"  />
+                         style="border:1px solid; margin-top: 9px; border-radius: 6px"  />
                 </div>
+                  
                 <br />
                 <div>
-                    <input type="file" title="search image" id="file" name="file" onchange="show(this)" hidden/>
+                    <input type="file" title="search image" id="file" name="file" onchange="show(this)"/>
                 </div>
                 <br />
         </div>
@@ -62,7 +63,17 @@
                 <input type="submit" value="Lägg till" class="btn btn-default" style="margin: 0px 5px 5px 9px;"/>
                
                 <input type="button" class="btn btn-default" value="Nästa" onclick="location.href='@Url.Action("Create", "Sizes", new { id = ViewBag.ID })'" style="margin: 0px 5px 5px 5px;"/>
+                @if (ViewBag.fileError != null)
+                {
+                    <p style="color: #d51e1e; margin: 5px 0px 0px 10px;">@ViewBag.fileError</p>
+                }
+
+                @if (ViewBag.color != null)
+                {
+                    <p style="margin-top: 5px; margin: 5px 0px 0px 10px; color: #52c200">@ViewBag.color</p>
+                }
             </div>
+            
         </div>
     </div>
 </div>
