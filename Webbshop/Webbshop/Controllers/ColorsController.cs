@@ -78,7 +78,7 @@ namespace Webbshop.Controllers
                 db.SaveChanges();
                 file.SaveAs(path);
 
-                return RedirectToAction("Create");
+                return RedirectToAction("Create",  new {id = color.Product_Id });
             }
             else
             {
