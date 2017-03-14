@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Postal;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -52,6 +53,13 @@ namespace Webbshop.Controllers
             {
                 db.User.Add(user);
                 db.SaveChanges();
+
+                //Email
+                dynamic email = new Email("WelcomeMail");
+                email.To = "magnus.wlln@gmail.com";
+                email.
+
+
                 return RedirectToAction("Index", "ViewUser");
             }
 
