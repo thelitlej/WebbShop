@@ -39,6 +39,7 @@ namespace Webbshop.Controllers
                         && vu.Password.Trim().Equals(i.Password.Trim()))
                     {
                         Session["ViewUser"] = vu;
+                        Session["User"] = i;
                         if (vu.Email == "admin")
                         {
                             return RedirectToAction("Index", "Users");

@@ -2,6 +2,7 @@
 @using Webbshop.Models;
 @{
     var user = Session["ViewUser"] as ViewUser;
+    var us = Session["User"] as User;
 }
 
 <html>
@@ -41,11 +42,9 @@
                         if (user.Email == "admin")
                         {
                             <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                            <li>@Html.ActionLink("Colors", "Index", "Colors")</li>
                             <li>@Html.ActionLink("Order Details", "Index", "Order_Details")</li>
                             <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
                             <li>@Html.ActionLink("Produkter", "Index", "Products")</li>
-                            <li>@Html.ActionLink("Sizes", "Index", "Sizes")</li>
                             <li>@Html.ActionLink("Target Group", "Index", "Target_Group")</li>
                             <li>@Html.ActionLink("Users", "Index", "Users")</li>
                         }
@@ -63,7 +62,10 @@
                 }
                 else
                 {
-                    <li>@Html.ActionLink("Logga ut", "LogOut", "ViewUser")</li>
+                    
+                    <p style="line-height: 100%">@us.First_Name @us.Last_Name </p>
+                    <p style="line-height: 100%">@Html.ActionLink("Logga ut", "LogOut", "ViewUser")</p>
+                    
                 }
 
 
