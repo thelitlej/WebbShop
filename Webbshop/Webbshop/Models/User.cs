@@ -53,7 +53,7 @@ namespace Webbshop.Models
         [Display(Name = "Adress")]
         [Required(ErrorMessage = "Du behöver fylla i din adress för att skapa en användare")]
         [RegularExpression(@"^[A-ZåÅäÄöÖ]+[-a-zA-Z_/\\.,åÅäÄöÖ\s\d]*$", ErrorMessage = "Börja din adress med versal")]
-        [StringLength(25, MinimumLength = 10, ErrorMessage = "Måste innehålla minst 10 teckan och mest 25")]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "Måste innehålla minst 10 teckan och mest 25")]
         public string Address { get; set; }
 
         [Display(Name = "Postnummer")]
@@ -74,8 +74,19 @@ namespace Webbshop.Models
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Måste innehålla minst 2 teckan och mest 20")]
         public string Country { get; set; }
 
+        [Display(Name = "Lösenord")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Du behöver ett lösenord för att skapa en användare")]
+        [StringLength(1000, MinimumLength = 8, ErrorMessage = "Måste innehålla minst 8 teckan och mest 20")]
         public string Password { get; set; }
-     
+
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [Display(Name = "Upprepa lösenord")]
+        [Required(ErrorMessage = "Upprepa ditt lösenord")]
+        [Compare("Password", ErrorMessage = "Ditt lösenord matchar inte")]
+        public string ComparePassword { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
 

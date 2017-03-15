@@ -56,6 +56,7 @@ namespace Webbshop.Controllers
 
             if (ModelState.IsValid)
             {
+                db.Configuration.ValidateOnSaveEnabled = false;
                 db.User.Add(user);
                 db.SaveChanges();
 
