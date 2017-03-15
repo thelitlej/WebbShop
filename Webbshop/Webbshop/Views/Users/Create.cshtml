@@ -50,6 +50,14 @@
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ComparePassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ComparePassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ComparePassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
         
         <div class="form-group">
             @Html.LabelFor(model => model.Phone_number, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -58,8 +66,6 @@
                 @Html.ValidationMessageFor(model => model.Phone_number, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        
 
         <div class="form-group">
             @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
