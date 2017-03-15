@@ -4,21 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Produktlista</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Product_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Quantity)
@@ -62,3 +61,5 @@
     </tr>
 }
 </table>
+
+<input type="button" class="btn btn-default" value="Lägg till ny produkt" onclick="location.href='@Url.Action("Create", "Products")'" style="margin: 0px 5px 5px 5px;" />
