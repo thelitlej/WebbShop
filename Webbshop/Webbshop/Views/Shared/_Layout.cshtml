@@ -1,4 +1,9 @@
 ﻿<!DOCTYPE html>
+@using Webbshop.Models;
+@{
+    var user = Session["ViewUser"] as ViewUser;
+}
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -20,23 +25,40 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("Colors", "Index", "Colors")</li>
-                    <li>@Html.ActionLink("Order Details", "Index", "Order_Details")</li>
-                    <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
-                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                    <li>@Html.ActionLink("Sizes", "Index", "Sizes")</li>
-                    <li>@Html.ActionLink("Target Group", "Index", "Target_Group")</li>
-                    <li>@Html.ActionLink("Users", "Index", "Users")</li>
                     
-                </ul>
-                
-                <ul class = "nav navbar-nav" style="font-size: 12px; position: absolute; right: 3vw; line-height: 50px;" >
-                    <li> @Html.ActionLink("Logga in", "Index", "ViewUser")</li>
-                    <li><p style = "color: white; vertical-align: middle; font-size: 10px;">eller</p><li>
-                    <li>@Html.ActionLink("Registrera dig", "Create", "Users")</li>
+                    @if(user != null)
+                    {
+                        if (user.Email == "admin")
+                        {
+                            <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                            <li>@Html.ActionLink("Colors", "Index", "Colors")</li>
+                            <li>@Html.ActionLink("Order Details", "Index", "Order_Details")</li>
+                            <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("Produkter", "Index", "Products")</li>
+                            <li>@Html.ActionLink("Sizes", "Index", "Sizes")</li>
+                            <li>@Html.ActionLink("Target Group", "Index", "Target_Group")</li>
+                            <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                        }
+                    }
+                    
 
                 </ul>
+             
+                <ul class = "nav navbar-nav" style="font-size: 12px; position: absolute; right: 3vw; line-height: 50px;" >
+                @if (user == null)
+                {
+                    <li> @Html.ActionLink("Logga in", "Index", "ViewUser")</li>
+                    <li><p style="color: white; vertical-align: middle; font-size: 10px;">eller</p></li>
+                    <li>@Html.ActionLink("Registrera dig", "Create", "Users")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Logga ut", "LogOut", "ViewUser")</li>
+                }
+
+
+                </ul>
+                
             </div>
         </div>
     </div>

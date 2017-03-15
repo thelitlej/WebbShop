@@ -14,6 +14,13 @@ namespace Webbshop.Controllers
 
         public ActionResult Index()
         {
+           if (Session["ViewUser"] != null)
+            {
+                ViewBag.logout = "Du har loggat ut";
+                Session["ViewUser"] = null;
+               
+            }
+            
             return View();
         }
 
@@ -59,6 +66,10 @@ namespace Webbshop.Controllers
             }
 
             return hexString.ToString();
+        }
+        public ActionResult LogOut()
+        {
+            return RedirectToAction("Index");
         }
     }
 }
