@@ -19,8 +19,9 @@ else
     ViewBag.Title = "Create";
 }
 
-<h2>Skapa produkt (Steg 3 av 3)</h2>
 <h2>Lägg till storlek</h2>
+<h3>Skapa produkt (Steg 3 av 3)</h3>
+
 
 
 @using (Html.BeginForm()) 
@@ -28,7 +29,7 @@ else
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Size</h4>
+       
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
