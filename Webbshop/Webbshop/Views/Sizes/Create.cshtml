@@ -19,7 +19,7 @@ else
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Skapa</h2>
 
 
 @using (Html.BeginForm()) 
@@ -27,7 +27,7 @@ else
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Size</h4>
+        <h4>Storlek</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
@@ -62,7 +62,7 @@ else
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Tillbaka", "Index")
 </div>
 
 @section Scripts {

@@ -21,9 +21,7 @@ else
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -90,3 +88,5 @@ else
 }
 
 </table>
+
+<input type="button" class="btn btn-default" value="Lägg till ny användare" onclick="location.href='@Url.Action("Create", "Users")'" style="margin: 0px 5px 5px 5px;" />
