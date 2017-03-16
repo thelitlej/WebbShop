@@ -2,27 +2,22 @@
 @using Webbshop.Models;
 @{
     var user = Session["ViewUser"] as ViewUser;
+    var us = Session["User"] as User;
 }
 
-@if (user != null)
-{
-    if (user.Email != "admin")
-    {
-        { Response.Redirect("~/Shop/Index"); }
-    }
-}
-else
+@if (user == null)
 {
     { Response.Redirect("~/Shop/Index"); }
 }
+
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detaljer</h2>
 
 <div>
-    <h4>User</h4>
+    <h4>Användare</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -83,23 +78,16 @@ else
 
         <dt>
             @Html.DisplayNameFor(model => model.Country)
+            
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Country)
+            <br /><br />
+            <input type="button" class="btn btn-default" value="Redigera" onclick="location.href='@Url.Action("Edit", "Users", new { id = us.Id })'" style="margin: 0px 5px 5px -10px;" />
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
+       
     </dl>
+    
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

@@ -4,22 +4,18 @@
     var user = Session["ViewUser"] as ViewUser;
 }
 
-@if (user != null)
+@if (user == null)
 {
-    if (user.Email != "admin")
-    {
-        { Response.Redirect("~/Shop/Index"); }
-    }
-}
-else
-{
+
     { Response.Redirect("~/Shop/Index"); }
+    
 }
+
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Redigera</h2>
 
 
 @using (Html.BeginForm())
@@ -27,7 +23,7 @@ else
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>User</h4>
+        <h4>Användare</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -106,14 +102,15 @@ else
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Spara" class="btn btn-default" />
+                <input type="button" class="btn btn-default" value="Byt lösenord" onclick="location.href='@Url.Action("Create", "Users")'" style="margin: 0px 5px 5px 5px;" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Tillbaka", "Index")
 </div>
 
 @section Scripts {
