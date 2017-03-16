@@ -4,8 +4,11 @@
 @{
     var user = Session["ViewUser"] as ViewUser;
     var us = Session["User"] as User;
+    if (us != null)
+    {
+        String userName = us.First_Name + " " + us.Last_Name;
+    }
 
-    String userName = us.First_Name + " " + us.Last_Name;
 }
 
 <html>
@@ -64,9 +67,13 @@
                     <li>@Html.ActionLink("Registrera dig", "Create", "Users")</li>
                 }
                 else
-                {  
+                {
                     <li><img src="~/icon-person-white.png" style="height:15px; width:auto; margin: 0px -5px 4px 0px;" /></li>
-                    <li>@Html.ActionLink(userName, "Details", "Users", new { id = us.Id }, null)</li>
+                    if (us != null)
+                    {
+                        String userName = us.First_Name + " " + us.Last_Name;
+                        <li>@Html.ActionLink(userName, "Details", "Users", new { id = us.Id }, null)</li>
+                    }
                     <li><p style="color: #F5EDF0; font-size:16px; margin-bottom: 7px;">|</p></li>
                     <li>@Html.ActionLink("Logga ut", "LogOut", "ViewUser")</li>
                 }
