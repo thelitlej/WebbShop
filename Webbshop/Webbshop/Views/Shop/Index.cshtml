@@ -1,7 +1,22 @@
-﻿
+﻿@model Tuple<List<Webbshop.Models.Product>,List<Webbshop.Models.Color>, List<Webbshop.Models.Size>>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>WEBBSHOP WÄLCOMMEN</h2>
+
+
+@foreach (var p in Model.Item1)
+{
+    @p.Id @p.Name @p.Price <br>
+
+    foreach (var c in Model.Item2)
+    {
+        @c.Product_Id @c.Color1 @c.Img_Name <br>
+    }
+    foreach (var s in Model.Item3)
+    {
+        @s.Product_Id @s.Size1 <br />
+    }
+}
 
