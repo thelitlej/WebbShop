@@ -4,17 +4,11 @@
     var user = Session["ViewUser"] as ViewUser;
 }
 
-@if (user != null)
-{
-    if (user.Email != "admin")
-    {
-        { Response.Redirect("~/Shop/Index"); }
-    }
-}
-else
+@if (user == null)
 {
     { Response.Redirect("~/Shop/Index"); }
 }
+
 @{
     ViewBag.Title = "Details";
 }
