@@ -84,21 +84,22 @@ namespace Webbshop.Controllers
 
 
                     TempData["color"] = "Färgen " + color.Color1.ToLower() + " har lagts till";
-                    return RedirectToAction("Create", new { id = color.Product_Id });
+                  
                 }
                 else
                 {
                     
                     TempData["fileError"] = "Välj en bild med rätt format (.png .jpg .Jpeg .jpeg)";
-                    return RedirectToAction("Create", new { id = color.Product_Id });
+                    
                 }
                 
             }
             else
             {
                 TempData["fileError"] = "Välj en bild";
-                return RedirectToAction("Create", new { id = color.Product_Id });
+                
             }
+            return RedirectToAction("Create", new { id = color.Product_Id });
 
         }
 

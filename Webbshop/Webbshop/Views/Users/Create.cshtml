@@ -1,4 +1,13 @@
 ﻿@model Webbshop.Models.User
+@using Webbshop.Models;
+@{
+    var user = Session["ViewUser"] as ViewUser;
+}
+
+@if (user != null)
+{
+        { Response.Redirect("~/Shop/Index"); }
+}
 
 @{
     ViewBag.Title = "Create";

@@ -57,7 +57,7 @@ namespace Webbshop.Controllers
             {
                 db.Product.Add(product);
                 db.SaveChanges();
-                return RedirectToAction("Create", "Colors");
+                return RedirectToAction("Create", "Colors", new { id = product.Id });
             }
 
             ViewBag.Category_Id = new SelectList(db.Category, "Id", "Category1", product.Category_Id);

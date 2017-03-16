@@ -1,7 +1,9 @@
 ﻿<!DOCTYPE html>
+
 @using Webbshop.Models;
 @{
     var user = Session["ViewUser"] as ViewUser;
+    var us = Session["User"] as User;
 }
 
 <html>
@@ -41,11 +43,9 @@
                         if (user.Email == "admin")
                         {
                             <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                            <li>@Html.ActionLink("Colors", "Index", "Colors")</li>
                             <li>@Html.ActionLink("Order Details", "Index", "Order_Details")</li>
                             <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
                             <li>@Html.ActionLink("Produkter", "Index", "Products")</li>
-                            <li>@Html.ActionLink("Sizes", "Index", "Sizes")</li>
                             <li>@Html.ActionLink("Target Group", "Index", "Target_Group")</li>
                             <li>@Html.ActionLink("Users", "Index", "Users")</li>
                         }
@@ -63,11 +63,19 @@
                 }
                 else
                 {
-                    <li>@Html.ActionLink("Logga ut", "LogOut", "ViewUser")</li>
+                    
+                    <li></li>
+                    <li><img src="~/icon-person-white.png" style="height:15px; width:auto; margin: 0px 10px 2px 0px;" /></li>
+                    <li style="color: #F5EDF0; display: inline-block;"><p style="vertical-align: middle; padding-bottom: 3px; display: inline;">@us.First_Name @us.Last_Name </p></li>
+                    <li><p style="padding-left: 16px; color: #F5EDF0; font-size:18px; margin-bottom: 5px;">|</p></li>
+                    <li>@Html.ActionLink("Logga ut", "LogOut", "ViewUser", new { @style = "color: white; text-decoration: none; " }, null)</li>
+                    
                 }
 
-
                 </ul>
+                
+                
+                
                 
             </div>
         </div>

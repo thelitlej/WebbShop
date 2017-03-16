@@ -1,4 +1,21 @@
 ﻿@model Webbshop.Models.Category
+@using Webbshop.Models;
+@{
+    var user = Session["ViewUser"] as ViewUser;
+}
+
+@if (user != null)
+{
+    if (user.Email != "admin")
+    {
+        { Response.Redirect("~/Shop/Index"); }
+    }
+}
+else
+{
+    { Response.Redirect("~/Shop/Index"); }
+}
+
 
 @{
     ViewBag.Title = "Edit";
