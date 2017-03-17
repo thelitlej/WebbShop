@@ -16,7 +16,7 @@
         {
             if (i.Product_Id == p.Id)
             {
-                <a href="@Url.Action("Index", "Shop", new { productID = p.Id, colorID = i.Id })">
+                <a href="@Url.Action("ProductView", "Shop", new { id = p.Id, colorId = i.Id })">
                     <div class="ShopItem">
                             <img class="ShopImg", src="~/Images/Products/@i.Img_Name">
                         <div>
