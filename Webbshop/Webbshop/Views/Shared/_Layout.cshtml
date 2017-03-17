@@ -25,6 +25,7 @@
     <meta property="og:description" content="Webbshop med kläder som är unika för just ditt barn med ett 
     tygmönster och en design som endast finns i ett fåtal exemplar. För varje plagg som köps så
     gynnas ett barn genom välgörenhet då 5 kr skänks till angeläget ändamål." >
+    <link href="~/Content/shopviewstyle.css" rel="stylesheet" type="text/css" media="screen" />
     <title>@ViewBag.Title - Kikom & Novej</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -68,7 +69,7 @@
                 }
                 else
                 {
-                    <li><img src="~/icon-person-white.png" style="height:15px; width:auto; margin: 0px -5px 4px 0px;" /></li>
+                    <li><img src="~/Images/Icons/icon-person-white.png" style="height:15px; width:auto; margin: 0px -5px 4px 0px;" /></li>
                     if (us != null)
                     {
                         String userName = us.First_Name + " " + us.Last_Name;
@@ -84,8 +85,9 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        
         <footer>
+            <hr />
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>

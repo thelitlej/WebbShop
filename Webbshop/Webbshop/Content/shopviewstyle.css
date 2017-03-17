@@ -1,0 +1,67 @@
+﻿body {
+}
+
+
+.containershop{
+    margin-top: 5vh;
+    
+}
+.containershop h2 {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 40px;
+    display: inline-block;
+}
+.containershop h4 {
+    position: relative;
+    margin-top: 10px;
+    padding-left: 50px;
+    display: inline-block;
+}
+
+.dropdownlists{
+    
+    
+    
+}
+
+.dropdownlists h5{
+    position: relative;
+    display:inline-block;
+    padding-left: 50px;
+    margin-top:20px;
+    font-weight:bold;
+    
+}
+
+.containershop p {
+    position: relative;
+    margin-top: 10px;
+    padding-left: 50px;
+    display: inline-block;
+    width: 40vw;
+}
+
+
+.imagecontainer {
+    margin-left: 2vw;   
+}
+
+
+
+.imagecontainer img{
+    height: 75vh;
+    width: auto;
+    float:left;
+}
+
+footer{
+    text-align: center;
+    position:absolute;
+    bottom:0px;
+    width: 90%;
+    margin: 4px;
+
+}
+
+

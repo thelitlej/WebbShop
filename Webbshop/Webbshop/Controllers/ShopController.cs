@@ -22,14 +22,18 @@ namespace Webbshop.Controllers
         }*/
         public ActionResult Index()
         {
-            ProductAndDetails pad = new ProductAndDetails();
-            //Product prod = new Product();
-
-            //prod = (from p in db.Product select p).FirstOrDefault();
             List<Product> prod = db.Product.ToList();
             List<Color> color = db.Color.ToList();
             List<Size> size = db.Size.ToList();
+            return View(Tuple.Create(prod, color, size));
+        }
 
+
+        public ActionResult ProductView(int? id)
+        {
+            Product prod = db.Product.Find(id);
+            List<Color> color = (from i in db.Color where i.Product_Id == id select i).ToList();
+            List<Size> size = (from i in db.Size where i.Product_Id == id select i).ToList();
             return View(Tuple.Create(prod, color, size));
         }
     }
