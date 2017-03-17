@@ -53,6 +53,7 @@ namespace Webbshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Category_Id,Target_Group_Id,Price,Name,Product_Status,Quantity")] Product product)
         {
+
             if (ModelState.IsValid)
             {
                 db.Product.Add(product);

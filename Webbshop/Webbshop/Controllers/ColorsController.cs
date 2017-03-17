@@ -56,6 +56,7 @@ namespace Webbshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Product_Id,Color1")] Color color, HttpPostedFileBase file)
         {
+
             //accepterade filformat
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
 
