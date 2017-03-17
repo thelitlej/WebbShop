@@ -1,33 +1,41 @@
-﻿@model Tuple<Webbshop.Models.Product, List<Webbshop.Models.Color>, List<Webbshop.Models.Size>>
+﻿@model Tuple<Webbshop.Models.Product, List<Webbshop.Models.Color>, List<Webbshop.Models.Size>, Webbshop.Models.Color>
 @{
     ViewBag.Title = "ProductView";
 }
 
 <main class="containershop">
     
-    @foreach (var p in Model.Item2)
-    {
+ 
         <div class="imagecontainer">
-            <img src="~/Images/Products/@p.Img_Name" />
+            <img src="~/Images/Products/@Model.Item4.Img_Name" style="margin-right:50px;"/>
         </div>
-        break;
-       
-
-    }
     <h2>@Model.Item1.Name</h2>
 
-
-
-    <div class="dropdownlists ">
-
-        <div class="colordrop">
-            <h5>Välj Färg</h5>
-           
-           
-        </div>
-        <div class="colordrop">
-            <h5>Välj Storlek</h5>
-        </div>
+    <div class="dropdownlists">
+        <table>
+            <tr>
+                <td>
+                    <div class="colordrop" style="margin-right: 20px;">
+                        <h5 style="margin-left: 3px;">Välj Färg</h5>
+                            @Html.DropDownList("ColorId", null,  htmlAttributes: new {@class = "form-control", @style = "width: 170px;"} )
+                            
+                    </div>
+                </td>
+                <td>
+                    <div class="colordrop">
+                        <h5 style="margin-left: 3px;">Välj Storlek</h5>
+                        @Html.DropDownList("SizeId", null, htmlAttributes: new { @class = "form-control", @style = "width: 170px;" })
+                    </div>
+                </td>
+            </tr>  
+        </table>
+        <table>
+            <tr>
+                <td style="width: 364px;">
+                    <button class="shoppingbutton form-control" style="margin-top:15px; ">Lägg till i kundvagn</button>
+                </td>
+            </tr>
+        </table>
         
     </div>
     
@@ -42,10 +50,12 @@
         voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
     </div>
     
-    @foreach (var p in Model.Item3)
-    {
-        <p>@p.Size1</p>
-    }
 
 </main>
+<script>
+    function(){
+        $('#testId').val(1052)
+    }
+    
+</script>
 

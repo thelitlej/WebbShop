@@ -10,16 +10,7 @@ namespace Webbshop.Controllers
     public class ShopController : Controller
     {
         private WebbShopEntities1 db = new WebbShopEntities1();
-        // GET: Shop
-        /*public ActionResult Index()
-        {
-            ProductAndDetails pad = new ProductAndDetails();
-            pad.Product = (from p in db.Product select p).ToList();
-            pad.Color = (from c in db.Color select c).ToList();
-            pad.Size = (from s in db.Size select s).ToList();
-
-            return View(pad);
-        }*/
+      
         public ActionResult Index()
         {
             List<Product> prod = db.Product.ToList();
@@ -29,12 +20,21 @@ namespace Webbshop.Controllers
         }
 
 
-        public ActionResult ProductView(int? id)
+        public ActionResult ProductView(int? id, int? colorId)
         {
+
+            List<Color> sje = (from i in db.Color where i.Product_Id == id && i.Id == colorId select i).ToList();
+            List<Color> sje2 = (from i in db.Color where i.Product_Id == id && i.Id != colorId select i).ToList();
+            sje.AddRange(sje2);
+
+            ViewBag.ColorId = new SelectList(sje, "Id", "Color1");
+            ViewBag.SizeId = new SelectList((from i in db.Size where i.Product_Id == id select i).ToList(), "Id", "Size1");
+
+            Color col = db.Color.Find(colorId);
             Product prod = db.Product.Find(id);
             List<Color> color = (from i in db.Color where i.Product_Id == id select i).ToList();
             List<Size> size = (from i in db.Size where i.Product_Id == id select i).ToList();
-            return View(Tuple.Create(prod, color, size));
+            return View(Tuple.Create(prod, color, size, col));
         }
     }
 }
