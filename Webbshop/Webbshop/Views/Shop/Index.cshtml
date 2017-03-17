@@ -1,22 +1,33 @@
-﻿@model Tuple<List<Webbshop.Models.Product>,List<Webbshop.Models.Color>, List<Webbshop.Models.Size>>
+﻿@model Tuple<List<Webbshop.Models.Product>, List<Webbshop.Models.Color>, List<Webbshop.Models.Size>>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>WEBBSHOP WÄLCOMMEN</h2>
 
-
-@foreach (var p in Model.Item1)
-{
-    @p.Id @p.Name @p.Price <br>
-
-    foreach (var c in Model.Item2)
+<div style="float:none">
+    @foreach (var p in Model.Item1)
     {
-        @c.Product_Id @c.Color1 @c.Img_Name <br>
-    }
-    foreach (var s in Model.Item3)
-    {
-        @s.Product_Id @s.Size1 <br />
-    }
-}
+        foreach (var i in Model.Item2)
+        {
+            if (i.Product_Id == p.Id)
+            {
+                <a href="@Url.Action("Index", "Shop", new { productID = p.Id, colorID = i.Id })">
+                    <div style="border-style: solid; width: 200px; float:left; margin:20px;">
 
+                        <div>
+                            <img src="~/Images/Products/@i.Img_Name"
+                                 height="200"
+                                 width="180"
+                                 style="border:1px solid; margin-top: 9px; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <p>@p.Name @i.Color1</p>
+                            <p>@p.Price SEK</p>
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+    }
+</div>

@@ -76,7 +76,7 @@ namespace Webbshop.Controllers
                     string name = Path.GetFileNameWithoutExtension(fileName);
                     string myfile = name + ext;
 
-                    var path = Path.Combine(Server.MapPath("~/App_Data"), myfile);
+                    var path = Path.Combine(Server.MapPath("~/Images/Products"), myfile);
 
                     db.Color.Add(color);
                     db.SaveChanges();
