@@ -25,7 +25,7 @@ namespace Webbshop.Models
 
 
         public int Id { get; set; }
-        [Display(Name = "Karegori")]
+        [Display(Name = "Kategori")]
         public int Category_Id { get; set; }
         [Display(Name = "Målgrupp")]
         public int Target_Group_Id { get; set; }

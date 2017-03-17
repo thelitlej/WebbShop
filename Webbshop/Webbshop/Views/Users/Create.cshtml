@@ -6,15 +6,9 @@
 
 @if (user != null)
 {
-    if (user.Email != "admin")
-    {
         { Response.Redirect("~/Shop/Index"); }
-    }
 }
-else
-{
-    { Response.Redirect("~/Shop/Index"); }
-}
+
 @{
     ViewBag.Title = "Create";
 }
@@ -116,14 +110,14 @@ else
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Skapa användare" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Tillbaka", "Index")
 </div>
 
 @section Scripts {

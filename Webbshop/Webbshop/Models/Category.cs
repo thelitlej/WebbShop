@@ -20,7 +20,7 @@ namespace Webbshop.Models
         {
             this.Product = new HashSet<Product>();
         }
-    
+        
         public int Id { get; set; }
         [Display(Name = "Kategori")]
         [Required(ErrorMessage = "Kategori behövs")]

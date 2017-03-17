@@ -1,8 +1,14 @@
 ﻿<!DOCTYPE html>
+
 @using Webbshop.Models;
 @{
     var user = Session["ViewUser"] as ViewUser;
     var us = Session["User"] as User;
+    if (us != null)
+    {
+        String userName = us.First_Name + " " + us.Last_Name;
+    }
+
 }
 
 <html>
@@ -41,12 +47,12 @@
                     {
                         if (user.Email == "admin")
                         {
-                            <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                            <li>@Html.ActionLink("Order Details", "Index", "Order_Details")</li>
-                            <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("Kategorier", "Index", "Categories")</li>
+                            <li>@Html.ActionLink("Orderdetaljer", "Index", "Order_Details")</li>
+                            <li>@Html.ActionLink("Ordrar", "Index", "Orders")</li>
                             <li>@Html.ActionLink("Produkter", "Index", "Products")</li>
-                            <li>@Html.ActionLink("Target Group", "Index", "Target_Group")</li>
-                            <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                            <li>@Html.ActionLink("Målgrupp", "Index", "Target_Group")</li>
+                            <li>@Html.ActionLink("Användare", "Index", "Users")</li>
                         }
                     }
                     
@@ -62,15 +68,17 @@
                 }
                 else
                 {
-                    
-                    <p style="line-height: 100%">@us.First_Name @us.Last_Name </p>
-                    <p style="line-height: 100%">@Html.ActionLink("Logga ut", "LogOut", "ViewUser")</p>
-                    
+                    <li><img src="~/icon-person-white.png" style="height:15px; width:auto; margin: 0px -5px 4px 0px;" /></li>
+                    if (us != null)
+                    {
+                        String userName = us.First_Name + " " + us.Last_Name;
+                        <li>@Html.ActionLink(userName, "Details", "Users", new { id = us.Id }, null)</li>
+                    }
+                    <li><p style="color: #F5EDF0; font-size:16px; margin-bottom: 7px;">|</p></li>
+                    <li>@Html.ActionLink("Logga ut", "LogOut", "ViewUser")</li>
                 }
 
-
-                </ul>
-                
+                </ul>                      
             </div>
         </div>
     </div>
