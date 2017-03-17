@@ -2,8 +2,12 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>WEBBSHOP WÄLCOMMEN</h2>
+@section ShopIndex {
+    <link href="@Url.Content("~/Content/ShopIndex.css")" rel="stylesheet" type="text/css" />
+}
+<div class="center">
+    <h1>Kikom & Novej</h1>
+</div>
 
 <div style="float:none">
     @foreach (var p in Model.Item1)
@@ -13,16 +17,10 @@
             if (i.Product_Id == p.Id)
             {
                 <a href="@Url.Action("Index", "Shop", new { productID = p.Id, colorID = i.Id })">
-                    <div style="border-style: solid; width: 200px; float:left; margin:20px;">
-
+                    <div class="ShopItem">
+                            <img class="ShopImg", src="~/Images/Products/@i.Img_Name">
                         <div>
-                            <img src="~/Images/Products/@i.Img_Name"
-                                 height="200"
-                                 width="180"
-                                 style="border:1px solid; margin-top: 9px; border-radius: 6px;">
-                        </div>
-                        <div>
-                            <p>@p.Name @i.Color1</p>
+                            <h2>@p.Name</h2>
                             <p>@p.Price SEK</p>
                         </div>
                     </div>

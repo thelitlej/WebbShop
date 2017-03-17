@@ -3,6 +3,9 @@
 @{
     var user = Session["ViewUser"] as ViewUser;
 }
+@section ShopIndex {
+    <link href="@Url.Content("~/Content/ShopIndex.css")" rel="stylesheet" type="text/css" />
+}
 
 @if (user != null)
 {
@@ -24,7 +27,7 @@ else
       if (input.files && input.files[0]) {
         var filerdr = new FileReader();
         filerdr.onload = function (e) {
-            $('#user_img').attr('src', e.target.result);
+            $('#product_img').attr('src', e.target.result);
         }
       filerdr.readAsDataURL(input.files[0]);
       }
@@ -59,13 +62,7 @@ else
         <div class="form-group">
             @Html.LabelFor(model => model.Img_Name,"Bild", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div>
-                    <img id="user_img"
-                         height="200"
-                         width="180"
-                         style="border:1px solid; margin-top: 9px; border-radius: 6px"  />
-                </div>
-                  
+                    <img class="ShopImg", id="product_img" />
                 <br />
                 <div>
                     <input type="file" title="search image" id="file" name="file" onchange="show(this)"/>
