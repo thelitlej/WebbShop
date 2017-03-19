@@ -17,8 +17,9 @@
                 <td>
                     <div class="colordrop" style="margin-right: 20px;">
                         <h5 style="margin-left: 3px;">Välj Färg</h5>
-                            @Html.DropDownList("ColorId", null,  htmlAttributes: new {@class = "form-control", @style = "width: 170px;"} )
-                            
+                            @Html.DropDownList("ColorId", null,  htmlAttributes: new {@class = "form-control", @style = "width: 170px;", id="test", onchange = "GetSelectedTextValue(this)" } )
+
+                        <!--onchange = "SelectionChanged()"-->
                     </div>
                 </td>
                 <td>
@@ -52,10 +53,14 @@
     
 
 </main>
+
 <script>
-    function(){
-        $('#testId').val(1052)
-    }
-    
 </script>
 
+<script type="text/javascript">
+    function GetSelectedTextValue(test) {
+        var selectedValue = test.value;
+        var url = '@Html.Raw(Url.Action("ProductView", "Shop"))' + "?colorId="+ selectedValue;
+        window.location = url;
+    }
+</script>

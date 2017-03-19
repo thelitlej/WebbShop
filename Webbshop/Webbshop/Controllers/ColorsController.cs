@@ -59,30 +59,38 @@ namespace Webbshop.Controllers
             //accepterade filformat
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
 
-
             if (file != null)
             {
                 //hämtar url
                 string url = file.ToString();
+
                 //hämtar filnamn
                 var fileName = Path.GetFileName(file.FileName);
+
                 //hämtar filnamnformat
                 var ext = Path.GetExtension(file.FileName);
+
+                //tar filnamnet och sparar det i modellen
                 string img_name = fileName.ToString();
                 color.Img_Name = img_name;
 
+                //kontrollerar om modellen är correct och att filen är av rätt format
                 if (ModelState.IsValid && allowedExtensions.Contains(ext))
                 {
+                    //sätter ihop namn och format
                     string name = Path.GetFileNameWithoutExtension(fileName);
                     string myfile = name + ext;
 
+                    //sätter vart filen ska sparas
                     var path = Path.Combine(Server.MapPath("~/Images/Products"), myfile);
 
-                    db.Color.Add(color);
-                    db.SaveChanges();
+                    //sparar filen
                     file.SaveAs(path);
 
-
+                    //lägger till och sparar modellen i databasen
+                    db.Color.Add(color);
+                    db.SaveChanges();
+                    
                     TempData["color"] = "Färgen " + color.Color1.ToLower() + " har lagts till";
                   
                 }
