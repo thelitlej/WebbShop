@@ -130,6 +130,7 @@ namespace Webbshop.Controllers
             {
                 return HttpNotFound();
             }
+            
             return View(order_Details);
         }
 
@@ -141,6 +142,15 @@ namespace Webbshop.Controllers
             Order_Details order_Details = db.Order_Details.Find(id);
             db.Order_Details.Remove(order_Details);
             db.SaveChanges();
+            var user = (Session["User"] as User);
+            if (user != null)
+            {
+                if (user.Email != "admin")
+                {
+                    return RedirectToAction("Cart", "Shop");
+                }
+            }
+            
             return RedirectToAction("Index");
         }
 

@@ -337,6 +337,7 @@
     <Content Include="Views\Emails\Web.config" />
     <Content Include="Views\Emails\Welcome.cshtml" />
     <Content Include="Views\Shop\ProductView.cshtml" />
+    <Content Include="Views\Shop\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\Products\" />
