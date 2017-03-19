@@ -74,6 +74,13 @@ namespace Webbshop.Controllers
             {
                 db.Order_Details.Add(order_Details);
                 db.SaveChanges();
+
+                var userId = (Session["User"] as User).Id;
+                Session["Cart"] = (from o in db.Order
+                                   join o_d in db.Order_Details on o.Id equals o_d.Order_Id
+                                   where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
+                                   select o_d.Id).Count();
+
                 return RedirectToAction("Index", "Orders");
             }
             return RedirectToAction("Index", "Shop");

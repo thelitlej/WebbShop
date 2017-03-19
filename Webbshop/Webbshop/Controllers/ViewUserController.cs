@@ -40,6 +40,12 @@ namespace Webbshop.Controllers
                     {
                         Session["ViewUser"] = vu;
                         Session["User"] = i;
+                        var userId = (Session["User"] as User).Id;
+                        Session["Cart"] = (from o in db.Order
+                                           join o_d in db.Order_Details on o.Id equals o_d.Order_Id
+                                           where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
+                                           select o_d.Id).Count();
+
                         if (vu.Email == "admin")
                         {
                             return RedirectToAction("Index", "Users");

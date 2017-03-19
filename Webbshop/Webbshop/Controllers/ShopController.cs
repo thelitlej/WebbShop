@@ -48,8 +48,8 @@ namespace Webbshop.Controllers
                 return RedirectToAction("Index", "Shop");
 
             }
-            var cart = db.Order_Details.Include(o => o.Color).Include(o => o.Order).Include(o => o.Product).Include(o => o.Size); 
-           
+            var cart = db.Order_Details.Include(o => o.Color).Include(o => o.Order).Include(o => o.Product).Include(o => o.Size);
+
             return View(cart.ToList());
         }
         public ActionResult Delete(int id)
@@ -57,6 +57,12 @@ namespace Webbshop.Controllers
             Order_Details order_Details = db.Order_Details.Find(id);
             db.Order_Details.Remove(order_Details);
             db.SaveChanges();
+
+            var userId = (Session["User"] as User).Id;
+            Session["Cart"] = (from o in db.Order
+                               join o_d in db.Order_Details on o.Id equals o_d.Order_Id
+                               where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
+                               select o_d.Id).Count();
 
             return RedirectToAction("Cart");
         }
