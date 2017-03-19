@@ -60,6 +60,63 @@ namespace Webbshop.Controllers
             ViewBag.User_Id = new SelectList(db.User, "Id", "First_Name", order.User_Id);
             return View(order);
         }
+        //
+        //create order auto
+        public ActionResult CreateOrderFromShop(int colorId, int sizeId, int productId)
+        {
+            var user = (Session["User"] as User);
+            int userId = user.Id;
+
+            if (user == null) {
+                TempData["LogInNeeded"] = "Du måste logga in för att handla";
+                return RedirectToAction("ProductView", "Shop", new { id = productId, colorId = colorId });
+            }
+            var currentOrder = from co in db.Order where co.User_Id == userId && (co.Order_Status != "Betald" || co.Order_Status != "betald") select co;
+            if (currentOrder.Count() == 0)
+            {
+                var userInfo = (from ui in db.User where ui.Id == userId select ui).FirstOrDefault();
+
+                return RedirectToAction("CreateNewOrder", new
+                {
+                    User_Id = user.Id,
+                    Order_Status = "Inte betald",
+                    Order_Number = "0",
+                    Total_Price = (float)(from p in db.Product where p.Id == productId select p.Price).FirstOrDefault(),
+                    Address = userInfo.Address,
+                    Postal_Code = userInfo.Postal_Code,
+                    City = userInfo.City,
+                    Country = userInfo.Country,
+                    colorId,
+                    sizeId,
+                    productId,
+                    userId
+                });
+            }
+            else
+            {
+                int orderId = currentOrder.FirstOrDefault().Id;
+                return RedirectToAction("CreateNewOrder_Detail", "Order_Details", new
+                {
+                    Order_Id = orderId,
+                    Product_Id = productId,
+                    Color_Id = colorId,
+                    Size_Id = sizeId,
+                    Quantity = 1
+                });
+            }
+
+        }
+        //test
+        public ActionResult CreateNewOrder([Bind(Include = "Id,User_Id,Order_Status,Order_Number,Total_Price,Address,Postal_Code,City,Country")] Order order, int colorId, int sizeId, int productId, int userId)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Order.Add(order);
+                db.SaveChanges();
+                return RedirectToAction("CreateOrderFromShop", "Orders", new { colorId,  sizeId,  productId });
+            }
+            return RedirectToAction("Index", "Shop");
+        }
 
         // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
