@@ -48,14 +48,17 @@ namespace Webbshop.Controllers
                 return RedirectToAction("Index", "Shop");
 
             }
-
             var cart = db.Order_Details.Include(o => o.Color).Include(o => o.Order).Include(o => o.Product).Include(o => o.Size); 
            
             return View(cart.ToList());
         }
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            return RedirectToAction("Delete", "Order_Details", new { id = id });
+            Order_Details order_Details = db.Order_Details.Find(id);
+            db.Order_Details.Remove(order_Details);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
