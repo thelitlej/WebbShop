@@ -43,7 +43,7 @@ namespace Webbshop.Controllers
         {
             var user = (Session["User"] as User);
             int userId = user.Id;
-            if (user != null)
+            if (user == null)
             {
                 return RedirectToAction("Index", "Shop");
 
