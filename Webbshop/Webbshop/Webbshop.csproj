@@ -234,6 +234,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="icon-person-white.png" />
+    <Content Include="Images\Icons\icon-cart.png" />
     <Content Include="Images\Icons\icon-person-white.png" />
     <Content Include="Models\WebShopModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
