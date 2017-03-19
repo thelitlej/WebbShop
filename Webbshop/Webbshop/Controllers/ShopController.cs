@@ -58,7 +58,7 @@ namespace Webbshop.Controllers
             db.Order_Details.Remove(order_Details);
             db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Cart");
         }
     }
 }
