@@ -51,10 +51,10 @@ namespace Webbshop.Controllers
             var tmp = (from o in db.Order
                        join o_d in db.Order_Details on o.Id equals o_d.Order_Id
                        where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
-                       select o_d.Id).FirstOrDefault();
+                       select o.Id).FirstOrDefault();
 
-            var cart = db.Order_Details.Where(x => x.Id == tmp);
-                cart = cart.Include(o => o.Color).Include(o => o.Order).Include(o => o.Product).Include(o => o.Size);
+            var cart = db.Order_Details.Include(o => o.Order).Where(o => o.Order.Id == tmp);
+               cart = cart.Include(o => o.Product).Include(o => o.Size).Include(o => o.Color);
 
             return View(cart.ToList());
         }
@@ -72,5 +72,30 @@ namespace Webbshop.Controllers
 
             return RedirectToAction("Cart");
         }
+        public ActionResult Payed()
+        {
+            var userId = (Session["User"] as User).Id;
+            int nonPayed = (from o in db.Order
+                            where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
+                            select o).Count();
+
+            if(nonPayed > 0)
+            {
+                Order orderToUpdate = (from o in db.Order
+                                       where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
+                                       select o).FirstOrDefault();
+
+                orderToUpdate.Order_Status = "Betald";
+                db.SaveChanges();
+
+                Session["Cart"] = (from o in db.Order
+                                   join o_d in db.Order_Details on o.Id equals o_d.Order_Id
+                                   where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
+                                   select o_d.Id).Count();
+            }
+            
+            return RedirectToAction("Cart");
+        }
+
     }
 }
