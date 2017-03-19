@@ -11,15 +11,18 @@
         </div>
     <h2>@Model.Item1.Name</h2>
 
+@using (Html.BeginForm("CreateOrderFromShop", "Orders", new { productId = Model.Item1.Id
+},FormMethod.Post,  new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
     <div class="dropdownlists">
         <table>
             <tr>
                 <td>
                     <div class="colordrop" style="margin-right: 20px;">
                         <h5 style="margin-left: 3px;">Välj Färg</h5>
-                            @Html.DropDownList("ColorId", null,  htmlAttributes: new {@class = "form-control", @style = "width: 170px;", id="test", onchange = "GetSelectedTextValue(this)" } )
-
-                        <!--onchange = "SelectionChanged()"-->
+                            @Html.DropDownList("ColorId", null, htmlAttributes: new { @class = "form-control", @style = "width: 170px;", id = "ddl", onchange = "getValue(this)" })
                     </div>
                 </td>
                 <td>
@@ -34,12 +37,13 @@
             <tr>
                 <td style="width: 364px;">
                     <button class="shoppingbutton form-control" style="margin-top:15px; ">Lägg till i kundvagn</button>
+                    <p style="color: #900000">@ViewBag.LogInNeeded</p>
                 </td>
             </tr>
         </table>
         
     </div>
-    
+
     <div class="productdescription">
         
         <br />
@@ -50,16 +54,16 @@
          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
         voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
     </div>
-    
 
+}
 </main>
 
 <script>
 </script>
 
 <script type="text/javascript">
-    function GetSelectedTextValue(test) {
-        var selectedValue = test.value;
+    function getValue(ddl) {
+        var selectedValue = ddl.value;
         var url = '@Html.Raw(Url.Action("ProductView", "Shop"))' + "?colorId="+ selectedValue;
         window.location = url;
     }

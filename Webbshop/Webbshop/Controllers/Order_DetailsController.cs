@@ -67,6 +67,18 @@ namespace Webbshop.Controllers
             return View(order_Details);
         }
 
+        //create order_details auto
+        public ActionResult CreateNewOrder_Detail([Bind(Include = "Id,Order_Id,Product_Id,Color_Id,Size_Id,Quantity")] Order_Details order_Details)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Order_Details.Add(order_Details);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Orders");
+            }
+            return RedirectToAction("Index", "Shop");
+        }
+
         // GET: Order_Details/Edit/5
         public ActionResult Edit(int? id)
         {

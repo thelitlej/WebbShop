@@ -22,6 +22,7 @@ namespace Webbshop.Controllers
 
         public ActionResult ProductView(int? id, int? colorId)
         {
+            ViewBag.LogInNeeded = (String)TempData["LogInNeeded"];
 
             List<Color> sje = (from i in db.Color where i.Product_Id == id && i.Id == colorId select i).ToList();
             List<Color> sje2 = (from i in db.Color where i.Product_Id == id && i.Id != colorId select i).ToList();
