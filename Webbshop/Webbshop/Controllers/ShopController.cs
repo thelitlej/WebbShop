@@ -46,6 +46,7 @@ namespace Webbshop.Controllers
             if (user != null)
             {
                 return RedirectToAction("Index", "Shop");
+
             }
 
             var cart = db.Order_Details.Include(o => o.Color).Include(o => o.Order).Include(o => o.Product).Include(o => o.Size); 
