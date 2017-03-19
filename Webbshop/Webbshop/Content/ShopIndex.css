@@ -15,22 +15,26 @@
     width: 250px;
     float: left;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 50px;
     align-content: center;
     text-align: center;
 }
 
 .ShopItem h2{
     font-size: 20px;
-
 }
 
 .ShopImg{
     overflow: hidden;
     border-radius: 8px;
-    height: 250px;
+    height: 300px;
     width: 230px;
     object-fit: cover;
     align-content: center;
     overflow: hidden;
+}
+
+.whitespace{
+    height:200px;
+    width: 100%;
 }

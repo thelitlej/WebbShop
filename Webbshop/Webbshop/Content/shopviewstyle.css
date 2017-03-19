@@ -61,7 +61,8 @@
 
 
 .imagecontainer {
-    margin-left: 2vw;   
+    margin-left: 2vw;
+    border-radius: 8px;   
 }
 
 
@@ -69,6 +70,7 @@
 .imagecontainer img{
     height: 75vh;
     width: 56.39vh;
+    border-radius: 8px;   
     float:left;
     object-fit: cover;
     align-content: center;
@@ -87,4 +89,43 @@ footer{
     line-height: 50px;
 }
 
+.center{
+    text-align: center;
+}
+
+.center h1{
+    font-size: 50px;
+}
+
+.ShopItem{
+    color: black;
+    height: 350px;
+    width: 250px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 50px;
+    align-content: center;
+    text-align: center;
+}
+
+.ShopItem h2{
+    font-size: 20px;
+}
+
+.ShopImg{
+    overflow: hidden;
+    border-radius: 8px;
+    height: 300px;
+    width: 230px;
+    object-fit: cover;
+    align-content: center;
+    overflow: hidden;
+}
+
+.whitespace{
+    min-height:100px;
+    width: 100%;
+    position: relative;
+    clear: both;
+}
 
