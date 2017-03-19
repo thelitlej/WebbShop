@@ -48,7 +48,13 @@ namespace Webbshop.Controllers
                 return RedirectToAction("Index", "Shop");
 
             }
-            var cart = db.Order_Details.Include(o => o.Color).Include(o => o.Order).Include(o => o.Product).Include(o => o.Size);
+            var tmp = (from o in db.Order
+                       join o_d in db.Order_Details on o.Id equals o_d.Order_Id
+                       where o.User_Id == userId && (o.Order_Status != "Betald" || o.Order_Status != "betald")
+                       select o_d.Id).FirstOrDefault();
+
+            var cart = db.Order_Details.Where(x => x.Id == tmp);
+                cart = cart.Include(o => o.Color).Include(o => o.Order).Include(o => o.Product).Include(o => o.Size);
 
             return View(cart.ToList());
         }
