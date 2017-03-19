@@ -53,5 +53,9 @@ namespace Webbshop.Controllers
            
             return View(cart.ToList());
         }
+        public ActionResult Delete(int? id)
+        {
+            return RedirectToAction("Delete", "Order_Details", new { id = id });
+        }
     }
 }
