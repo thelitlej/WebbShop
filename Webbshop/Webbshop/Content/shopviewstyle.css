@@ -81,12 +81,13 @@ footer{
     background-color: #f9feff;
     border-top: solid 1px #808080;
     text-align: center;
-    position: static;
+    position: fixed;
     right: 0;
     left: 0;
     bottom:0;
     height:50px;
     line-height: 50px;
+
 }
 
 .center{
